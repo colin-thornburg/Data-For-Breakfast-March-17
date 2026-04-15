@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: stg_march_madness__games
+    description: Staged March Madness game results, enriched with round labeling and game-level derived metrics.
+    columns:
+      - name: game_id
+        description: Surrogate key for the game, generated from year, round, and the participating team names.
+        tests:
+          - unique
+          - not_null
+
+      - name: year
+        description: Tournament year.
+
+      - name: round_of
+        description: Number of teams in the round (e.g., 64, 32, 16, 8, 4, 2).
+
+      - name: round_name
+        description: Human-readable tournament round name derived from round_of.
+
+      - name: winning_team_name
+        description: Name of the winning team.
+
+      - name: winning_team_seed
+        description: Seed of the winning team (lower is better).
+
+      - name: winning_team_score
+        description: Points scored by the winning team.
+
+      - name: losing_team_name
+        description: Name of the losing team.
+
+      - name: losing_team_seed
+        description: Seed of the losing team (lower is better).
+
+      - name: losing_team_score
+        description: Points scored by the losing team.
+
+      - name: point_differential
+        description: Margin of victory (winning_team_score - losing_team_score).
+
+      - name: seed_differential
+        description: Seed difference between the losing and winning teams (losing_team_seed - winning_team_seed). Positive values indicate an upset.
+
+      - name: is_upset
+        description: True when the losing team had a better seed than the winning team (losing_team_seed < winning_team_seed).

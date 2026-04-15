@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: fct_team_tournament_games
+    description: Team-grain fact table for tournament games (two rows per game, one per team).
+    columns:
+      - name: game_id
+        description: Surrogate key for the game.
+
+      - name: tournament_year
+        description: Tournament year.
+
+      - name: round_of
+        description: Number of teams in the round (e.g., 64, 32, 16, 8, 4, 2).
+
+      - name: round_name
+        description: Human-readable tournament round name.
+
+      - name: team_name
+        description: Team represented by this row.
+
+      - name: team_seed
+        description: Seed of the team represented by this row (lower is better).
+
+      - name: team_score
+        description: Points scored by the team represented by this row.
+
+      - name: opponent_name
+        description: Opposing team in the game.
+
+      - name: opponent_seed
+        description: Seed of the opposing team (lower is better).
+
+      - name: opponent_score
+        description: Points scored by the opposing team.
+
+      - name: is_winner
+        description: True when the team represented by this row won the game.
+
+      - name: point_differential
+        description: Team perspective point differential; positive means the team won, negative means the team lost.
+
+      - name: is_upset
+        description: True when the team won as the underdog (their seed number was higher than their opponent's).
+
+      - name: is_underdog
+        description: True when the team had a worse seed than their opponent (team_seed > opponent_seed).
