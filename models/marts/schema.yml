@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fct_team_tournament_games
+    description: Team-grain March Madness tournament games with one row per team per game.
+    columns:
+      - name: game_id
+        description: Surrogate key for the original game.
+        data_tests:
+          - not_null
+      - name: tournament_year
+        description: Tournament year for the game.
+      - name: round_of
+        description: Number of teams remaining at the start of the round.
+      - name: round_name
+        description: Human-readable name for the tournament round.
+      - name: team_name
+        description: Team represented by this row.
+        data_tests:
+          - not_null
+      - name: team_seed
+        description: Tournament seed for the team on this row.
+      - name: team_score
+        description: Final score for the team on this row.
+      - name: opponent_name
+        description: Opposing team in the matchup.
+      - name: opponent_seed
+        description: Tournament seed for the opposing team.
+      - name: opponent_score
+        description: Final score for the opposing team.
+      - name: is_winner
+        description: True when the team on this row won the game.
+      - name: point_differential
+        description: Team score minus opponent score, so positive means a win and negative means a loss.
+      - name: is_upset
+        description: True when the winner of the game had a worse seed number than the loser.
+      - name: is_underdog
+        description: True when this team's seed number is worse than the opponent's seed number.
