@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fct_team_tournament_games
+    description: Team-grain fact table for NCAA tournament games with one row per team per game.
+    columns:
+      - name: game_id
+        description: Surrogate key inherited from the source game.
+        data_tests:
+          - not_null
+      - name: tournament_year
+        description: Tournament year for the game.
+      - name: round_of
+        description: Number of teams remaining in the tournament round.
+      - name: round_name
+        description: Human-readable tournament round name.
+      - name: team_name
+        description: Name of the team represented by the row.
+        data_tests:
+          - not_null
+      - name: team_seed
+        description: Tournament seed for the team represented by the row.
+      - name: team_score
+        description: Final score for the team represented by the row.
+      - name: opponent_name
+        description: Name of the opposing team in the game.
+      - name: opponent_seed
+        description: Tournament seed for the opposing team.
+      - name: opponent_score
+        description: Final score for the opposing team.
+      - name: is_winner
+        description: True when the row represents the winning team in the game.
+      - name: point_differential
+        description: Score differential from the team's perspective, positive for wins and negative for losses.
+      - name: is_upset
+        description: True when the team won despite having a worse seed number than its opponent.
+      - name: is_underdog
+        description: True when the team had a worse seed number than its opponent.
