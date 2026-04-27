@@ -4,20 +4,9 @@
 
 ## Live Demo Clickpath
 
-### Launch Claude Code in auto-approve mode
-
-From a local terminal:
-
-```bash
-cd ~/Data-For-Breakfast-March-17
-claude --dangerously-skip-permissions
-```
-
 ---
 
 ### Step 1: Load the seed data
-
-**Prompt to paste into Claude Code:**
 
 ```text
 Use your dbt analytics engineering skill. I have a CSV seed file at
@@ -28,8 +17,6 @@ from 1985-2024. Run dbt seed --full-refresh to load it into Snowflake.
 ---
 
 ### Step 2: Build the staging model
-
-**Prompt to paste into Claude Code:**
 
 ```text
 Use your dbt analytics engineering skill to create a staging model called
